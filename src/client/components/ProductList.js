@@ -55,13 +55,6 @@ const ProductList = props => {
 		)
 	}
 	
-	const sortProduct = (type, order) => {
-		const tempProducts = productItems;
-		const sortProduct = _.orderBy(tempProducts, [type],[order]);
-		setProductItems(sortProduct);
-		setSortType(`${type}-${order}`);
-	}
-	
 	const addFilter = (type, val) => {
 		const tempFilter = filter;
 		const itemKey = _.toLower(type);
