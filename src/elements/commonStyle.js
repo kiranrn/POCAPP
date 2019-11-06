@@ -5,7 +5,7 @@ export const Button = styled.button`
 	display: inline-block;
 	color: white;
 	font-size: 0.85em;
-	margin: 0.75em;
+	margin: 0.25em;
 	padding: 0.50em 0.75em;
 	border: 1px solid #428bca;
 	border-radius: 3px;
@@ -40,9 +40,13 @@ export const Button = styled.button`
 `;
 
 export const H3 = styled.h3`
-	color: #5fa2dd;
 	font-size: 1.5rem;
+	font-weight: normal;
 	margin: 0;
+`;
+
+export const P = styled.p`
+	margin: 0.25em 0;
 `;
 
 export const MainContainer = styled.div`
@@ -68,6 +72,7 @@ export const ItemList = styled.div`
 	.img-div{
 		display: block;
 		overflow: hidden;
+		margin-bottom: 0.25em;
 	}
 	.disc-div{
 	}

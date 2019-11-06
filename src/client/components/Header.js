@@ -13,7 +13,7 @@ const Header = () => {
 				<Input type="text" className="header-input" />
 				<CartInfo>
 					<Icon className="cart">Cart</Icon>
-					<span>(11)</span>
+					<span>(0)</span>
 				</CartInfo>
 			</Col>
 		</HeaderRow>

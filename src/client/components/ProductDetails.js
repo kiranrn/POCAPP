@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import { fetchProducts } from '../actions';
 import { findProduct } from '../../helpers/helperActions';
-import { Button, MainContainer, ItemList, H3 } from '../../elements/commonStyle';
+import ListItem from './ListItem';
+import { MainContainer } from '../../elements/commonStyle';
 
 
 const ProductDetails = () => {
@@ -21,32 +22,10 @@ const ProductDetails = () => {
 		setProduct(findProduct(products, id));
     }, [ products ]);
 	
-	
-	const renderProductDetails = () => {
-		const { id, title, price, picture, category, description } = product;
-		return (
-			<ItemList>
-				<span className="img-div">
-					<img src={picture} alt={title} />
-				</span>
-				<span className="disc-div">
-					<H3>{title}</H3>
-					<i>{category}</i><br/>
-					<strong>{`$${price}`}</strong>
-					<p>{description}</p>
-					<p>
-						<Button className="lg-btn primary">Add To Cart</Button>
-						<Button className="lg-btn secondary">Buy Now</Button>
-					</p>
-				</span>
-			</ItemList>
-		)
-	}
-	
 	if ( !_.isEmpty(product) ) {
       return (
 		<MainContainer>
-			{renderProductDetails()}
+			<ListItem data={product} buyOption />
 		</MainContainer>
 	  )
     }

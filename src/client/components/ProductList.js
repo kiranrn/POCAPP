@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'styled-bootstrap-grid';
@@ -7,6 +6,7 @@ import { fetchProducts } from '../actions';
 import { Button, MainContainer, ItemList, ProductListDiv, FilterSection } from '../../elements/commonStyle';
 import Accordion from './Accordion';
 import FiltersList from './FiltersList';
+import ListItem from './ListItem';
 import { createCategoryList, createPriceList } from '../../helpers/helperActions';
 import { CATEGORY_LABEL, PRICE_LABEL } from '../../constant';
 
@@ -34,19 +34,7 @@ const ProductList = props => {
 		const items = productItems.map(item => {
 			return (
 				<ProductListDiv key={item.id} >
-						<ItemList>
-							<span className="img-div">
-								<Link to={`${item.id}`} target="_blank">
-									<img src={item.picture} alt={item.title} />
-								</Link>
-							</span>
-							<span className="disc-div">
-								<Link to={`${item.id}`} target="_blank" className="link-title" >{item.title}</Link><br/>
-								<i>{item.category}</i><br/>
-								<strong>{`$${item.price}`}</strong>
-								<p>{item.description}</p>
-							</span>
-						</ItemList>
+					<ListItem data={item} />
 				</ProductListDiv>
 			)
 		});
