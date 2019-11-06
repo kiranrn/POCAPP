@@ -58,7 +58,7 @@ const Accordion = props => {
 	}
 	
 	return (
-		<div>
+		<React.Fragment>
 			<AccordionTitle onClick={expandItem} className={`${expand ? 'exapanded' : ''}`}>
 				{props.title}
 				{props.children && <AccordionIcon />}
@@ -66,7 +66,7 @@ const Accordion = props => {
 			<AccordionContent style={{ display: `${expand ? 'block' : 'none'}`}}>
 				{props.children}
 			</AccordionContent>
-		</div>
+		</React.Fragment>
 	)
 }
 

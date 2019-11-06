@@ -9,7 +9,7 @@
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "test": "jest",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -s ./ -p 9009",
     "build-storybook": "build-storybook"
   },
   "author": "",
