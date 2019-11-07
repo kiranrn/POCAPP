@@ -16,8 +16,8 @@ export default (req, store, sheet, context) => {
 			<ThemeProvider theme={{}}>
 				<Container fluid>
 					<BaseCSS css={GlobalStyle} />
-					<Header />
 					<Provider store={store} >
+						<Header />
 						<StaticRouter location={req.url.pathname} context={context} >
 							<div>{renderRoutes(Routes)}</div>
 						</StaticRouter>

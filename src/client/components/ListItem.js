@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import { Button, ItemList, H3, P } from '../../elements/commonStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { ItemList, H3, P } from '../../elements/commonStyle';
+import CommonButton from './Button';
+import { updateCart } from '../actions';
 
 const ListItem = props => {
 	const { data : { id, picture, price, title, description }, buyOption } = props;
+	const cartItems = useSelector(state => state.cart);
+	const dispatch = useDispatch();
+
+	const [ addedToCart, setAddedToCart ] = useState(false);
+	
+	const addToCart = () => {
+		const tempCartItems = _.cloneDeep(cartItems);
+		tempCartItems.push(id);
+		setAddedToCart(true);
+		dispatch(updateCart(tempCartItems));
+	}
+	
+	const removeFromCart = () => {
+		const tempCartItems = _.cloneDeep(cartItems);
+		_.remove(tempCartItems, n => n === id);
+		setAddedToCart(false);
+		dispatch(updateCart(tempCartItems));
+	}
+	
 	return (
 		<ItemList>
 			<span className="img-div">
 				{!buyOption ? (
-					<Link to={`${id}`} target="_blank">
+					<Link to={`${id}`} title={title} target="_blank">
 						<img src={picture} alt={title} />
 					</Link>
 				) : (<img src={picture} alt={title} />) }
@@ -19,9 +42,9 @@ const ListItem = props => {
 				<H3>{`$${price}`}</H3>
 			</span>
 			<div>
-				<Button className="lg-btn">Add To Cart</Button>
-				<Button className="lg-btn secondary">Remove From Cart</Button>
-				{buyOption && <Button className="lg-btn primary">Buy Now</Button>}
+				{!addedToCart ? <CommonButton classes="lg-btn" clickFn={addToCart}>Add To Cart</CommonButton> :
+				<CommonButton classes="lg-btn secondary" clickFn={removeFromCart} >Remove From Cart</CommonButton> }
+				{buyOption && <CommonButton classes="lg-btn primary">Buy Now</CommonButton>}
 			</div>
 		</ItemList>
 	)

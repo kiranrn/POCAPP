@@ -51,7 +51,6 @@ const ProductList = props => {
 		if (itemIndex < 0) {
 			tempFilter[itemKey].push(val);
 		}
-		console.log(tempFilter);
 		setFilter(tempFilter);
 		applyFilter();
 	}

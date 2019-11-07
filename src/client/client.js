@@ -18,8 +18,8 @@ ReactDOM.hydrate(
 	<ThemeProvider theme={{}}>
 		<Container fluid>
 			<BaseCSS css={GlobalStyle} />
-			<Header />
 			<Provider store={store}>
+				<Header />
 				<BrowserRouter>
 					<div>{renderRoutes(Routes)}</div>
 				</BrowserRouter>
