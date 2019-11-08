@@ -90,6 +90,17 @@ async function start() {
       },
 	  {
         method: 'GET',
+        path: '/resourses/{param*}',
+        options: {
+          handler: {
+            directory: {
+              path: 'resourses'
+            }
+          },
+        }
+      },
+	  {
+        method: 'GET',
         path: '/images/{param*}',
         options: {
           handler: {

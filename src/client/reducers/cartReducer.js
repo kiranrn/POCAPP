@@ -1,4 +1,4 @@
-import { UPDATE_CART } from '../../constant';
+import { UPDATE_CART } from '../actions/types';
 
 export default (state = [], action) => {
 	switch (action.type) {

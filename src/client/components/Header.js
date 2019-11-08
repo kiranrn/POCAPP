@@ -15,7 +15,7 @@ const Header = () => {
 				<Input type="text" className="header-input" />
 				<CartInfo>
 					<Icon className="cart">Cart</Icon>
-					<span>({cartItems.length})</span>
+					<span id="cartCount">({cartItems.length})</span>
 				</CartInfo>
 			</Col>
 		</HeaderRow>

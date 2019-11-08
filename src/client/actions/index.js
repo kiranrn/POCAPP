@@ -1,10 +1,12 @@
-import { FETCH_PRODUCTS, PRODUCT_LIST, UPDATE_CART } from '../../constant';
+import axios from 'axios';
+import { PRODUCT_LIST } from '../../constant';
+import { FETCH_PRODUCTS, UPDATE_CART } from './types';
 
 export const fetchProducts = () => async dispatch => {
-	const res = PRODUCT_LIST;
+	const res = await axios.get('/resourses/product.json');
 	dispatch({
 		type: FETCH_PRODUCTS,
-		payload: res,
+		payload: res.data,
 	});
 	return true;
 }
