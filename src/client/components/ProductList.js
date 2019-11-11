@@ -39,7 +39,7 @@ const ProductList = props => {
 			)
 		});
 		return (
-			<div>{items}</div>
+			<div className="productListSection">{items}</div>
 		)
 	}
 	
@@ -95,7 +95,7 @@ const ProductList = props => {
 					</div>
 				</FilterSection>
 			</Col>
-			<Col col xl="10" lg="9" md="8" sm="7">
+			<Col className="productListHolder" col xl="10" lg="9" md="8" sm="7">
 				{!_.isEmpty(productItems) ? renderProducts() : <ProductListDiv> {'No Products found'} </ProductListDiv>}
 			</Col>
 		</Row>

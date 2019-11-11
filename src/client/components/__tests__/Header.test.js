@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { ThemeProvider } from 'styled-components';
 import Header from '../Header';
 import ReduxProvider from '../ReduxProvider';
-import { TEMP_INITIAL_STATE } from '../../../constant'
+import { TEMP_INITIAL_STATE } from '../../../constant';
 
 let wrapped;
 
@@ -17,8 +17,12 @@ beforeEach(() => {
 	);
 });
 
+afterEach(() => {
+	wrapped.unmount();
+});
+
 describe('Header Test', () => {
 	it('should match cart item count ', () => {
-		expect(wrapped.find('#cartCount').text()).toEqual('(5)')
+		expect(wrapped.find('#cartCount').text()).toEqual('(5)');
 	});
 });

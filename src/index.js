@@ -49,18 +49,6 @@ const pre1 = async(request, h) => {
 	//	return renderer(request, store, sheet, {});
 	//});
 	
-	
-	
-	
-	/*const store = createStore(),
-		activeRoute = Routes.find( route => matchPath(request.url.pathname, route)) || {},
-		data = activeRoute.loadData ? await activeRoute.loadData(store) : {},
-		context = { ...data },
-		sheet = new ServerStyleSheet(); 
-	  
-		return activeRoute;
-		//return renderer(request, store, sheet, context);*/
-
   } catch(err) {
 
     console.warn(err);
